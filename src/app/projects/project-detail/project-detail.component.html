@@ -1,0 +1,10 @@
+<div class="flex-container" style="margin: 2rem 1rem;">
+
+    <ng-container *ngIf="project!=null">
+        <h3 class="custom-text">{{project.name}}</h3>
+    </ng-container>
+    
+
+    <br>
+    <button class="custom-btn" (click)="update_project()" >Update</button>&nbsp;&nbsp;<button  class="custom-btn" (click)="delete_project()">Delete</button>
+</div>

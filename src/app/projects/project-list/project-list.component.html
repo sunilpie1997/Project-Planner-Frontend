@@ -1,0 +1,29 @@
+
+<div class="flex-container" style="margin: 2rem 1rem;" class="custom-text">
+
+    <div class="row row-cols-3 row-cols-md-2">
+        <ng-container  *ngFor="let project of projects_list">
+    
+            <div class="col mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <a routerLink="/projects/{{project.id}}" >
+                            {{project.id}}&nbsp;:&nbsp; {{project.name}}
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        
+                        <p class="card-text">{{project.description}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <p class="card-text">{{project.start_date}}</p>
+                        <p  class="card-text">{{project.end_date}}</p>
+                    </div>
+                </div>
+            </div>
+        
+        </ng-container>
+    </div>
+    
+
+</div>

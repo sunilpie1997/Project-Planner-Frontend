@@ -9,7 +9,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-               <a class="navlink" href="#">About Us</a>
+               <a class="navlink" href="projects/">Projects</a>
           </li>
           
 
@@ -21,7 +21,7 @@
       
       
       <ng-container *ngIf="loginStatus && user">
-              <span class="navlink">{{user.username}}</span>
+              <a class="navlink" routerLink="login/">{{user.username}}</a>
            
       
       </ng-container> 
