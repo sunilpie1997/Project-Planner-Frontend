@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-md navbar-light sticky-top shadow  bg-white">
+    
+  <a class="navlink" href="#">Project Planner</a>
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+               <a class="navlink" href="#">About Us</a>
+          </li>
+          
+
+      </ul>
+
+      <ng-container *ngIf="!loginStatus">
+          <a class="navlink" routerLink="login/">Login</a>
+      </ng-container>
+      
+      
+      <ng-container *ngIf="loginStatus && user">
+              <span class="navlink">{{user.username}}</span>
+           
+      
+      </ng-container> 
+      
+  
+  </div>
+
+</nav>
+
+<router-outlet></router-outlet>
