@@ -1,1 +1,53 @@
-<p>project-update works!</p>
+
+<div class="container" style="margin: 2rem 5rem;text-align:center" class="custom-text">
+
+    <form #updateProject="ngForm" (ngSubmit)="update_project()" novalidate>
+  
+        
+        <div class="form-group">
+            <label for="name_id"> Project Name</label>
+            <input type="text" id="name_id" name="project_name" class="form-control" required minlength="3" maxlength="50" [(ngModel)]="project.name" #p_name="ngModel" [class.is-invalid]="p_name.touched && p_name.invalid">
+            
+            <div *ngIf="p_name.errors && p_name.touched">
+                <small class="text-danger" *ngIf="p_name.errors.required">project name is required</small>
+                <small class="text-danger" *ngIf="p_name.errors.maxlength">project name should be of max 50 chars</small>
+                <small class="text-danger" *ngIf="p_name.errors.minlength">project name should be of min 3 chars</small>
+    
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="desc_id">Description</label>
+            <input type="text" id="desc_id" name="project_desc" class="form-control" required minlength="3" maxlength="100" [(ngModel)]="project.description" #p_desc="ngModel" [class.is-invalid]="p_desc.touched && p_desc.invalid">
+            
+            <div *ngIf="p_desc.errors && p_desc.touched">
+                <small class="text-danger" *ngIf="p_desc.errors.required">project description is required</small>
+                <small class="text-danger" *ngIf="p_desc.errors.maxlength">project description should be of max 100 chars</small>
+                <small class="text-danger" *ngIf="p_desc.errors.minlength">project description should be of min 3 chars</small>
+    
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="sdate_id">Start date</label>
+            <input type="date" id="sdate_id" name="project_sdate" class="form-control" required  [(ngModel)]="project.start_date" #p_sdate="ngModel" [class.is-invalid]="p_sdate.touched && p_sdate.invalid">
+            
+            <div *ngIf="p_sdate.errors && p_sdate.touched">
+                <small class="text-danger" *ngIf="p_sdate.errors.required">project start date is required</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="edate_id">End date</label>
+            <input type="date" id="edate_id" name="project_edate" class="form-control" required  [(ngModel)]="project.end_date" #p_edate="ngModel" [class.is-invalid]="p_edate.touched && p_edate.invalid">
+            
+            <div *ngIf="p_edate.errors && p_edate.touched">
+                <small class="text-danger" *ngIf="p_edate.errors.required">project end date is required</small>
+            </div>
+        </div>
+
+        <button type="submit" [disabled]="updateProject.form.invalid" class="btn custom-btn">Proceed</button>
+    
+    </form>
+
+</div>

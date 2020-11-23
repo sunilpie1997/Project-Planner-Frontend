@@ -86,6 +86,13 @@ export class ProjectService {
   } 
 
 
+  //update project by id
+  update_project_by_id(project:Project)
+  {
+    return this.http.put<Project>(this.path+'api/projects/'+project.id+'/update/',project,
+            {headers: new HttpHeaders({'Content-Type': 'application/json'}),observe:'response'})
+            .pipe(catchError(this.handleError))
+  }
 
   //retrieve task for a particular project
   async get_tasks(project_id:number):Promise<Task[]>

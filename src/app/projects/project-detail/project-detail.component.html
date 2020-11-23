@@ -2,16 +2,27 @@
 
     <ng-container *ngIf="project!=null">
 
-        <h4>{{project.name}}</h4><br>
-        <h6>{{project.description}}</h6><br>
+        <p>Project Id&nbsp;:&nbsp;{{project.id}}</p>
+        <p>Name&nbsp;:&nbsp;{{project.name}}</p>
+        <p>Description&nbsp;:&nbsp;{{project.description}}</p>
+        <p>Start date&nbsp;:&nbsp;{{project.start_date}}</p>
+        <p>End date&nbsp;:&nbsp;{{project.end_date}}</p>
         
+    
+
+    
+        <button class="btn custom-btn" (click)="update_project()" >Update</button>
+    
+        <button  class="btn custom-btn" (click)="delete_project()">Delete</button>
+
     </ng-container>
 
-    
-    <button class="btn custom-btn" (click)="update_project()" >Update</button>
-    
-    <button  class="btn custom-btn" (click)="delete_project()">Delete</button>
+    <ng-container *ngIf="edit_project && project!=null">
 
+        <app-project-update [project]="project"></app-project-update>
+    
+    </ng-container>
+    
     <hr>
     <ng-container *ngIf="project!=null">
         

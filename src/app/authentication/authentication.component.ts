@@ -34,7 +34,7 @@ export class AuthenticationComponent implements OnInit{
   async onSubmit()
   {
     /* remove this... */
-    alert(JSON.stringify(this.loginForm.value));
+    //alert(JSON.stringify(this.loginForm.value));
 
     let loginUser:LoginUser=new LoginUser();
     loginUser.setUserName(this.loginForm.get('userName').value);

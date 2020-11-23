@@ -14,6 +14,8 @@ export class ProjectDetailComponent implements OnInit {
 
   show_tasks:boolean=false;
 
+  edit_project:boolean=false;
+
   project:Project=null;
   
   constructor(private route:ActivatedRoute,private projectService:ProjectService) { }
@@ -49,4 +51,8 @@ export class ProjectDetailComponent implements OnInit {
     
   }
 
+  update_project()
+  {
+    this.edit_project=!this.edit_project;
+  }
 }

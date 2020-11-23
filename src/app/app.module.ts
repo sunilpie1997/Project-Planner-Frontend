@@ -13,7 +13,7 @@ import { InterceptorService } from './interceptor.service';
   declarations: [
     AppComponent,
     RoutingComponent,
-
+    
   ],
   imports: [
     BrowserModule,
