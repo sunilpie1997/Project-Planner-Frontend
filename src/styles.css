@@ -9,6 +9,7 @@ body {
       color: white;
       border-radius: 0.50rem;
       letter-spacing: 0.08rem;
+      margin:0.5rem;
     
     }
     
@@ -29,7 +30,7 @@ body {
     .custom-text {
   
       color:#145374;
-      font-weight: 600;
+      font-weight: bolder;
       font-size: 1rem;
       letter-spacing: 0.1rem;
       

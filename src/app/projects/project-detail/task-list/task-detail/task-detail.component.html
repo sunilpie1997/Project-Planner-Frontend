@@ -1,0 +1,49 @@
+<div class="container custom-text" style="margin:2rem;text-align:center">
+
+    <ng-container *ngIf="task!=null">
+
+        <p>
+            <button (click)="update_task()" class="btn custom-btn">Update</button>
+    
+            <button (click)="delete_task()" class="btn custom-btn">Delete</button>
+    
+        </p>
+
+        <p>
+            Task id&nbsp;:&nbsp;{{task_id}}
+        </p>
+
+        <p> Name<br>
+            {{task.name}}
+        </p>
+
+        <p> Description <br>
+            {{task.description}}
+
+        </p>
+
+        <p> Start <br>
+            {{task.start_date}}
+        </p>
+
+        <p> End <br>
+
+            {{task.end_date}}
+        </p>
+
+        <p> Assignee <br>
+
+            <ng-container *ngIf="task.assignee!=null">
+                {{task.assignee.first_name}}&nbsp;{{task.last_name}}<br>
+                Email:{{task.assignee.email}}
+            </ng-container>
+
+            <ng-container *ngIf="task.assignee==null">
+                To be Assigned
+            </ng-container>
+            
+            
+        </p>
+
+    </ng-container>
+</div>

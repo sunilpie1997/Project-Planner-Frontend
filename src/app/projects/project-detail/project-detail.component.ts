@@ -12,14 +12,17 @@ export class ProjectDetailComponent implements OnInit {
 
   project_id:number=null;
 
+  show_tasks:boolean=false;
+
   project:Project=null;
+  
   constructor(private route:ActivatedRoute,private projectService:ProjectService) { }
 
   ngOnInit(): void {
 
     //obtaining project_id from route parameters
     this.route.paramMap.subscribe((params:ParamMap)=>{
-      let id=parseInt(params.get('id'));
+      let id=parseInt(params.get('project_id'));
       this.project_id=id;
       
       this.get_project(this.project_id);
@@ -28,6 +31,10 @@ export class ProjectDetailComponent implements OnInit {
    
   }
 
+  view_tasks()
+  {
+    this.show_tasks=!this.show_tasks;
+  }
 
 
   async get_project(project_id:number)

@@ -1,10 +1,27 @@
-<div class="flex-container" style="margin: 2rem 1rem;">
+<div class="container" style="margin: 2rem 2rem;text-align:center" class="custom-text">
 
     <ng-container *ngIf="project!=null">
-        <h3 class="custom-text">{{project.name}}</h3>
-    </ng-container>
-    
 
-    <br>
-    <button class="custom-btn" (click)="update_project()" >Update</button>&nbsp;&nbsp;<button  class="custom-btn" (click)="delete_project()">Delete</button>
+        <h4>{{project.name}}</h4><br>
+        <h6>{{project.description}}</h6><br>
+        
+    </ng-container>
+
+    
+    <button class="btn custom-btn" (click)="update_project()" >Update</button>
+    
+    <button  class="btn custom-btn" (click)="delete_project()">Delete</button>
+
+    <hr>
+    <ng-container *ngIf="project!=null">
+        
+        <button class="btn custom-btn" (click)="view_tasks()">View Tasks</button>
+
+    </ng-container>
+
+    <ng-container *ngIf="project!=null && show_tasks">
+
+        <app-task-list [project_id]="project.id"></app-task-list>
+
+    </ng-container>
 </div>

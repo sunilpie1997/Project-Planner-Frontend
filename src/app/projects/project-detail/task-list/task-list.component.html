@@ -1,0 +1,40 @@
+<div class="container" style="margin-top:2rem">
+        
+    <div class="row row-cols-3">
+
+        <ng-container *ngFor="let task of tasks_list">
+
+            <div class="col">
+
+                <p>{{task.id}}</p>
+                <p>{{task.name}}</p>
+                
+                <p>{{task.description}}</p>
+                <p>start&nbsp;:&nbsp;{{task.start_date}}</p>
+                <p>end&nbsp;:&nbsp;{{task.end_date}}</p>
+                <p>
+                    <ng-container *ngIf="task.assignee!=null">
+
+                        assignee&nbsp;:&nbsp;{{task.assignee.first_name}}
+                    
+                    </ng-container>
+                    <ng-container *ngIf="task.assignee==null">
+
+                        assignee&nbsp;:&nbsp;None
+
+                    </ng-container>
+                    
+                </p>
+                <p>
+                    <a routerLink="/projects/{{project_id}}/tasks/{{task.id}}"><button class="btn custom-btn">View</button></a>
+                </p>
+                
+            </div>
+            
+
+        </ng-container>
+       
+        
+    </div>
+    
+</div>

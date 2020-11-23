@@ -4,12 +4,18 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 import { ProjectListComponent } from './projects/project-list/project-list.component';
 import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
 import { ProjectUpdateComponent } from './projects/project-detail/project-update/project-update.component';
-
+import { TaskListComponent } from './projects/project-detail/task-list/task-list.component';
+import { TaskDetailComponent } from './projects/project-detail/task-list/task-detail/task-detail.component';
 
 const routes: Routes = [
   {'path':'login',component:AuthenticationComponent},
   {'path':'projects',component:ProjectListComponent},
-  {'path':'projects/:id',component:ProjectDetailComponent},
+  {'path':'projects/:project_id',component:ProjectDetailComponent},
+  {'path':'projects/:project_id/tasks/:task_id',component:TaskDetailComponent}
+
+  
+
+  
 ];
 
 @NgModule({
@@ -23,6 +29,8 @@ export const RoutingComponent=[
   ProjectListComponent,
   ProjectDetailComponent,
   ProjectUpdateComponent,
+  TaskListComponent,
+  TaskDetailComponent,
 
   
 ]

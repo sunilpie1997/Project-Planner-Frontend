@@ -5,6 +5,8 @@ import { Observable, throwError } from 'rxjs';
 import { catchError} from 'rxjs/operators';
 import { ProjectListAPI } from '../classes/project-list-api';
 import { Project } from '../classes/project';
+import { TaskListAPI } from '../classes/task-list-api';
+import { Task } from '../classes/task';
 
 
 @Injectable({
@@ -47,7 +49,7 @@ export class ProjectService {
    async get_projects():Promise<Project[]>
   {
     let response:HttpResponse<ProjectListAPI>;
-    /* get token */
+   
       response=await this.http.get<ProjectListAPI>(this.path+'api/projects/',
             {headers: new HttpHeaders({'Content-Type': 'application/json'}),observe:'response'})
             .pipe(catchError(this.handleError)).toPromise();
@@ -84,5 +86,35 @@ export class ProjectService {
   } 
 
 
+
+  //retrieve task for a particular project
+  async get_tasks(project_id:number):Promise<Task[]>
+  {
+    let response:HttpResponse<TaskListAPI>;
+    
+      response=await this.http.get<TaskListAPI>(this.path+'api/projects/'+project_id+'/tasks/',
+            {headers: new HttpHeaders({'Content-Type': 'application/json'}),observe:'response'})
+            .pipe(catchError(this.handleError)).toPromise();
+
+      let taskListApi:TaskListAPI=response.body;
+
+      return taskListApi.results;
+          
+  }
+
+  /* get individual task details (of a project) */
+  async get_task_by_id(project_id:number,task_id:number):Promise<Task>
+  {
+    let response:HttpResponse<Task>;
+    /* get token */
+      response=await this.http.get<Task>(this.path+'api/projects/'+project_id+'/tasks/'+task_id+'/',
+            {headers: new HttpHeaders({'Content-Type': 'application/json'}),observe:'response'})
+            .pipe(catchError(this.handleError)).toPromise();
+
+      let task:Task=response.body;
+
+      return task;
+          
+  }
 
 }
