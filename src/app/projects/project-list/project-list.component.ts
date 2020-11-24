@@ -10,6 +10,9 @@ import { ProjectService } from 'src/app/services/project.service';
 export class ProjectListComponent implements OnInit {
 
   projects_list:Project[]
+
+  page_no:number=1;
+
   constructor(private projectService:ProjectService) { }
 
   ngOnInit(): void {
@@ -19,6 +22,22 @@ export class ProjectListComponent implements OnInit {
 
   async getAllProjects()
   {
-    this.projects_list=await this.projectService.get_projects();
+    this.projects_list=await this.projectService.get_projects(this.page_no);
   }
+
+  //increase page_no
+  increase_page()
+  {
+    this.page_no=this.page_no+1;
+    this.getAllProjects();
+  }
+
+  //decrease page_no
+  decrease_page()
+  {
+    this.page_no=this.page_no-1;
+    this.getAllProjects();
+
+  }
+
 }

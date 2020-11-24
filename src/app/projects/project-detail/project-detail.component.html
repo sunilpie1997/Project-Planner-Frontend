@@ -1,5 +1,6 @@
 <div class="container" style="margin: 2rem 2rem;text-align:center" class="custom-text">
 
+    <!-- project details -->
     <ng-container *ngIf="project!=null">
 
         <p>Project Id&nbsp;:&nbsp;{{project.id}}</p>
@@ -17,6 +18,7 @@
 
     </ng-container>
 
+    <!-- if user clicks on 'update' button -->
     <ng-container *ngIf="edit_project && project!=null">
 
         <app-project-update [project]="project"></app-project-update>
@@ -24,12 +26,16 @@
     </ng-container>
     
     <hr>
+
+    <!-- vew taks in a project -->
     <ng-container *ngIf="project!=null">
         
         <button class="btn custom-btn" (click)="view_tasks()">View Tasks</button>
 
     </ng-container>
 
+
+    <!-- 'tasks list' component -->
     <ng-container *ngIf="project!=null && show_tasks">
 
         <app-task-list [project_id]="project.id"></app-task-list>

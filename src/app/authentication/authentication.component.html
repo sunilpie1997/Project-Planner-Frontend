@@ -1,5 +1,6 @@
 <div class="flex-container" style="margin: 10rem 1rem;">
 
+    <!-- if not logged in -->
     <ng-container *ngIf="!loginStatus">
 
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
@@ -22,6 +23,7 @@
 
     </ng-container>
 
+    <!-- if logged in -->
     <ng-container *ngIf="loginStatus">
         <button class="btn custom-btn" (click)="logout()">Logout</button>
 

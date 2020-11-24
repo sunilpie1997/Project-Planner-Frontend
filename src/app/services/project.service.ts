@@ -48,11 +48,11 @@ export class ProjectService {
   }};
 
 
-   async get_projects():Promise<Project[]>
+   async get_projects(page_no:number):Promise<Project[]>
   {
     let response:HttpResponse<ProjectListAPI>;
    
-      response=await this.http.get<ProjectListAPI>(this.path+'api/projects/',
+      response=await this.http.get<ProjectListAPI>(this.path+'api/projects/?page='+page_no,
             {headers: new HttpHeaders({'Content-Type': 'application/json'}),observe:'response'})
             .pipe(catchError(this.handleError)).toPromise();
 
@@ -97,11 +97,11 @@ export class ProjectService {
   }
 
   //retrieve task for a particular project
-  async get_tasks(project_id:number):Promise<Task[]>
+  async get_tasks(project_id:number,page_no:number):Promise<Task[]>
   {
     let response:HttpResponse<TaskListAPI>;
     
-      response=await this.http.get<TaskListAPI>(this.path+'api/projects/'+project_id+'/tasks/',
+      response=await this.http.get<TaskListAPI>(this.path+'api/projects/'+project_id+'/tasks/?page='+page_no,
             {headers: new HttpHeaders({'Content-Type': 'application/json'}),observe:'response'})
             .pipe(catchError(this.handleError)).toPromise();
 
@@ -160,5 +160,5 @@ export class ProjectService {
       .pipe(catchError(this.handleError))
     }
 
-    
+
 }

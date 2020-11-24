@@ -1,5 +1,6 @@
 <div class="container custom-text" style="margin:2rem;text-align:center">
 
+    <!-- show task detail -->
     <ng-container *ngIf="task!=null">
 
 
@@ -53,6 +54,7 @@
 
     </ng-container>
 
+    <!-- show 'task-update' component when user clicks on 'update' button mentioned above -->
     <ng-container *ngIf="edit_task && task!=null">
 
         <app-task-update [project_id]="project_id" [task]="task"></app-task-update>
