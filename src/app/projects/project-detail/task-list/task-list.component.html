@@ -1,5 +1,20 @@
 <div class="container" style="margin-top:2rem">
+      
+    <p style="text-align: center;">
         
+        <a routerLink="tasks/create">
+            <button class="btn btn-icon">
+                <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                </svg>
+                <b>New Task</b>
+            
+            </button>
+        </a>
+        
+    </p>
+
+
     <div class="row row-cols-3">
 
         <ng-container *ngFor="let task of tasks_list">

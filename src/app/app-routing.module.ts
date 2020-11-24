@@ -9,6 +9,7 @@ import { TaskDetailComponent } from './projects/project-detail/task-list/task-de
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TaskUpdateComponent } from './projects/project-detail/task-list/task-detail/task-update/task-update.component';
 import { ProjectCreateComponent } from './projects/project-create/project-create.component';
+import { TaskCreateComponent } from './projects/project-detail/task-create/task-create.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   {'path':'projects',component:ProjectListComponent},
   {'path':'projects/create',component:ProjectCreateComponent},
   {'path':'projects/:project_id',component:ProjectDetailComponent},
+  {'path':'projects/:project_id/tasks/create',component:TaskCreateComponent},
   {'path':'projects/:project_id/tasks/:task_id',component:TaskDetailComponent},
   
   {'path':'**',component:PageNotFoundComponent}
@@ -41,7 +43,8 @@ export const RoutingComponent=[
   TaskDetailComponent,
   PageNotFoundComponent,
   TaskUpdateComponent,
-  ProjectCreateComponent
+  ProjectCreateComponent,
+  TaskCreateComponent
 
   
 ]

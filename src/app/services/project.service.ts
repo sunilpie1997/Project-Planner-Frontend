@@ -151,4 +151,14 @@ export class ProjectService {
             .pipe(catchError(this.handleError))
 
     }
+
+    create_new_task(project_id:number,new_task:NewTask)
+    {
+
+      return this.http.post<NewTask>(this.path+'api/projects/'+project_id+'/tasks/create/',new_task,
+      {headers: new HttpHeaders({'Content-Type': 'application/json'}),observe:'response'})
+      .pipe(catchError(this.handleError))
+    }
+
+    
 }
