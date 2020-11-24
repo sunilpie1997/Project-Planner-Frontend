@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Project } from 'src/app/classes/project';
+import { ProjectAvatar } from 'src/app/classes/project-avatar';
 import { ProjectService } from 'src/app/services/project.service';
 
 @Component({
@@ -19,6 +20,15 @@ export class ProjectDetailComponent implements OnInit {
   edit_project:boolean=false;
 
   project:Project=null;
+
+  projectAvatar:ProjectAvatar=null;
+
+  /* error in image (that is going to be uploaded ) */
+  public is_error:boolean=false;
+
+  /* image file */
+  public imagefile:File=null;
+
   
   constructor(private route:ActivatedRoute,private projectService:ProjectService) { }
 
@@ -30,6 +40,8 @@ export class ProjectDetailComponent implements OnInit {
       this.project_id=id;
       
       this.get_project(this.project_id);
+
+      this.get_project_avatar();
     });
 
    
@@ -59,4 +71,53 @@ export class ProjectDetailComponent implements OnInit {
   {
     this.edit_project=!this.edit_project;
   }
-}
+
+  async get_project_avatar()
+  {
+    this.projectAvatar= await this.projectService.get_project_avatar(this.project_id);
+  }
+
+
+
+  /* when user selects image for upload */
+  onFileSelect(event) {
+    if (event.target.files.length > 0) {
+
+      const file:File= event.target.files[0];
+      if(file.size<=50000){//100  kb....
+        
+        console.log(file.size)
+        this.imagefile=file;
+        this.is_error=false;
+      }
+      
+      else
+      this.is_error=true;
+    }
+      else
+      this.is_error=true;
+    
+  }
+
+
+  //update project avatar image
+  onSubmit(){
+  
+    if(!this.is_error && this.imagefile!=null){
+      let filename=this.imagefile.name;
+      
+      /* new instance of formData containing iamge to be send */
+      let formData:FormData=new FormData();
+      formData.append('file',this.imagefile);
+      
+      this.projectService.updateProjectAvatar(this.project_id,formData,filename).subscribe(resp=>
+        alert("project avatar image successfull uploaded")
+        );
+
+      }
+
+    }
+
+
+
+  }

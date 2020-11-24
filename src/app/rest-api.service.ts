@@ -7,10 +7,13 @@ export class RestApiService {
 
   constructor() { }
 
-  private static path="http://project-planner-ufaber.herokuapp.com/";
+  private static path="http://localhost:8000/";
   
   public static getPath():String
   {
     return RestApiService.path;
   }
+
+
+
 }

@@ -1,8 +1,22 @@
 <div class="container" style="margin: 2rem 2rem;text-align:center" class="custom-text">
 
+    <br>
     <!-- project details -->
     <ng-container *ngIf="project!=null">
 
+        <img [src]="projectAvatar.image" alt="project avatar" style="height: 10rem;width:10rem;margin-bottom:0.5rem;">
+
+        <!-- update project avatar -->
+            <form  (ngSubmit)="onSubmit()" class="form-group">
+            
+                <div class="custom-file">
+                <input type="file" name="image" accept=".jpg,.jpeg"  required (change)="onFileSelect($event)">
+                    <div *ngIf="is_error">Image size should be less than 50 Kb</div>
+                    </div>
+                <button type="submit" class="btn custom-btn">Submit</button>
+            </form> 
+       
+        
         <p>Project Id&nbsp;:&nbsp;{{project.id}}</p>
         <p>Name&nbsp;:&nbsp;{{project.name}}</p>
         <p>Description&nbsp;:&nbsp;{{project.description}}</p>

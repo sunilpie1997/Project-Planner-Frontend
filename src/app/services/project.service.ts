@@ -9,6 +9,7 @@ import { TaskListAPI } from '../classes/task-list-api';
 import { Task } from '../classes/task';
 import { NewTask } from '../classes/new-task';
 import { NewProject } from '../classes/new-project';
+import { ProjectAvatar } from '../classes/project-avatar';
 
 
 @Injectable({
@@ -160,5 +161,28 @@ export class ProjectService {
       .pipe(catchError(this.handleError))
     }
 
+
+    //get project avatar image
+    async get_project_avatar(project_id:number):Promise<ProjectAvatar>
+    {
+
+      let response:HttpResponse<ProjectAvatar>=await this.http.get<ProjectAvatar>(this.path+'api/projects/'+project_id+'/image/',
+      {headers: new HttpHeaders({'Content-Type': 'application/json'}),observe:'response'})
+      .pipe(catchError(this.handleError)).toPromise();
+
+      return response.body;
+
+
+    }
+
+    /* update project image by user --->change contentType to match as below */
+     updateProjectAvatar(project_id:number,formData:FormData,filename:string)
+     {
+
+      return  this.http.post<any>(this.path+'api/projects/'+project_id+'/image/'+filename+'/',formData).pipe(
+        catchError(this.handleError)
+    );
+
+    }
 
 }
