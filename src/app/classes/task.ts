@@ -2,6 +2,7 @@ import { Assignee } from './assignee';
 
 export interface Task {
 
+    readonly id:number;
     readonly name:string;
     readonly description:string;
     readonly start_date:Date;

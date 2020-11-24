@@ -2,12 +2,6 @@
 
     <ng-container *ngIf="task!=null">
 
-        <p>
-            <button (click)="update_task()" class="btn custom-btn">Update</button>
-    
-            <button (click)="delete_task()" class="btn custom-btn">Delete</button>
-    
-        </p>
 
         <p>
             Task id&nbsp;:&nbsp;{{task_id}}
@@ -45,5 +39,19 @@
             
         </p>
 
+        <p>
+            <button (click)="update_task()" class="btn custom-btn">Update</button>
+    
+            <button (click)="delete_task()" class="btn custom-btn">Delete</button>
+    
+        </p>
+
     </ng-container>
+
+    <ng-container *ngIf="edit_task && task!=null">
+
+        <app-task-update [project_id]="project_id" [task]="task"></app-task-update>
+    
+    </ng-container>
+
 </div>

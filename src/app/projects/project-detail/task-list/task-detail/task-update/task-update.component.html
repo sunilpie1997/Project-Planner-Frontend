@@ -1,0 +1,63 @@
+
+<div class="container" style="margin: 2rem 5rem;text-align:center" class="custom-text">
+
+    <form #updateTask="ngForm" (ngSubmit)="update_task()" novalidate>
+  
+        
+        <div class="form-group">
+            <label for="name_id"> Task Name</label>
+            <input type="text" id="name_id" name="task_name" class="form-control" required minlength="3" maxlength="50" [(ngModel)]="new_task.name" #t_name="ngModel" [class.is-invalid]="t_name.touched && t_name.invalid">
+            
+            <div *ngIf="t_name.errors && t_name.touched">
+                <small class="text-danger" *ngIf="t_name.errors.required">task name is required</small>
+                <small class="text-danger" *ngIf="t_name.errors.maxlength">task name should be of max 50 chars</small>
+                <small class="text-danger" *ngIf="t_name.errors.minlength">task name should be of min 3 chars</small>
+    
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="desc_id">Description</label>
+            <input type="text" id="desc_id" name="task_desc" class="form-control" required minlength="3" maxlength="100" [(ngModel)]="new_task.description" #t_desc="ngModel" [class.is-invalid]="t_desc.touched && t_desc.invalid">
+            
+            <div *ngIf="t_desc.errors && t_desc.touched">
+                <small class="text-danger" *ngIf="t_desc.errors.required">task description is required</small>
+                <small class="text-danger" *ngIf="t_desc.errors.maxlength">task description should be of max 100 chars</small>
+                <small class="text-danger" *ngIf="t_desc.errors.minlength">task description should be of min 3 chars</small>
+    
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="sdate_id">Start date</label>
+            <input type="date" id="sdate_id" name="task_sdate" class="form-control" required  [(ngModel)]="new_task.start_date" #t_sdate="ngModel" [class.is-invalid]="t_sdate.touched && t_sdate.invalid">
+            
+            <div *ngIf="t_sdate.errors && t_sdate.touched">
+                <small class="text-danger" *ngIf="t_sdate.errors.required">task start date is required</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="edate_id">End date</label>
+            <input type="date" id="edate_id" name="task_edate" class="form-control" required  [(ngModel)]="new_task.end_date" #t_edate="ngModel" [class.is-invalid]="t_edate.touched && t_edate.invalid">
+            
+            <div *ngIf="t_edate.errors && t_edate.touched">
+                <small class="text-danger" *ngIf="t_edate.errors.required">task end date is required</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="assignee_id">Assignee (username)</label>
+            <input type="text" id="assignee_id" name="assignee" class="form-control"  [(ngModel)]="new_task.username" minlength="3" maxlength="50" #assignee="ngModel" [class.is-invalid]="assignee.touched && assignee.invalid">
+            
+            <div *ngIf="assignee.errors && assignee.touched">
+                <small class="text-danger" *ngIf="assignee.errors.maxlength">assignee's username should be of max 50 chars</small>
+                <small class="text-danger" *ngIf="assignee.errors.minlength">assignee's username should be of min 3 chars</small>  
+            </div>
+        </div>
+
+        <button type="submit" [disabled]="updateTask.form.invalid" class="btn custom-btn">Proceed</button>
+    
+    </form>
+
+</div>

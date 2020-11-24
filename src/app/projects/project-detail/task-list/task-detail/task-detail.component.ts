@@ -11,10 +11,12 @@ import { ProjectService } from 'src/app/services/project.service';
 })
 export class TaskDetailComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute,private projectServive:ProjectService) { }
+  constructor(private route:ActivatedRoute,private projectService:ProjectService) { }
 
   task_id:number=null;
   project_id:number=null;
+
+  edit_task:boolean=false;
 
   task:Task=null;
 
@@ -34,7 +36,18 @@ export class TaskDetailComponent implements OnInit {
 
 async retrieve_task()
 {
-  this.task= await this.projectServive.get_task_by_id(this.project_id,this.task_id);
+  this.task= await this.projectService.get_task_by_id(this.project_id,this.task_id);
 }
+
+update_task()
+{
+  this.edit_task=!this.edit_task;
+}
+
+delete_task()
+{
+  this.projectService.delete_task_by_id(this.project_id,this.task_id).subscribe(resp=>alert("deleted"));
+}
+
 
 }

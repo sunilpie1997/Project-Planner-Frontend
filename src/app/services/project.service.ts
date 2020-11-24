@@ -7,6 +7,7 @@ import { ProjectListAPI } from '../classes/project-list-api';
 import { Project } from '../classes/project';
 import { TaskListAPI } from '../classes/task-list-api';
 import { Task } from '../classes/task';
+import { NewTask } from '../classes/new-task';
 
 
 @Injectable({
@@ -124,4 +125,19 @@ export class ProjectService {
           
   }
 
+  //update task by id (with project_id)
+  update_task_by_id(project_id:number,new_task:NewTask)
+  {
+    return this.http.put<Task>(this.path+'api/projects/'+project_id+'/tasks/'+new_task.id+'/update/',new_task,
+            {headers: new HttpHeaders({'Content-Type': 'application/json'}),observe:'response'})
+            .pipe(catchError(this.handleError))
+  }
+
+    //delete task by id (only manager can delete project's task)
+    delete_task_by_id(project_id:number,task_id:number)
+    {
+      return this.http.delete(this.path+'api/projects/'+project_id+'/tasks/'+task_id+'/delete/',
+        {headers: new HttpHeaders({'Content-Type': 'application/json'}),
+        observe:'response'}).pipe(catchError(this.handleError))
+    } 
 }
