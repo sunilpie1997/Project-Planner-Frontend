@@ -8,14 +8,17 @@ import { TaskListComponent } from './projects/project-detail/task-list/task-list
 import { TaskDetailComponent } from './projects/project-detail/task-list/task-detail/task-detail.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TaskUpdateComponent } from './projects/project-detail/task-list/task-detail/task-update/task-update.component';
+import { ProjectCreateComponent } from './projects/project-create/project-create.component';
 
 
 const routes: Routes = [
   {'path':'',redirectTo:'/login',pathMatch:'full'},
   {'path':'login',component:AuthenticationComponent},
   {'path':'projects',component:ProjectListComponent},
+  {'path':'projects/create',component:ProjectCreateComponent},
   {'path':'projects/:project_id',component:ProjectDetailComponent},
   {'path':'projects/:project_id/tasks/:task_id',component:TaskDetailComponent},
+  
   {'path':'**',component:PageNotFoundComponent}
 
   
@@ -38,7 +41,7 @@ export const RoutingComponent=[
   TaskDetailComponent,
   PageNotFoundComponent,
   TaskUpdateComponent,
-
+  ProjectCreateComponent
 
   
 ]

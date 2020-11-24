@@ -8,6 +8,7 @@ import { Project } from '../classes/project';
 import { TaskListAPI } from '../classes/task-list-api';
 import { Task } from '../classes/task';
 import { NewTask } from '../classes/new-task';
+import { NewProject } from '../classes/new-project';
 
 
 @Injectable({
@@ -140,4 +141,14 @@ export class ProjectService {
         {headers: new HttpHeaders({'Content-Type': 'application/json'}),
         observe:'response'}).pipe(catchError(this.handleError))
     } 
+
+    //create new project (only authenticated users)
+    create_new_project(new_project:NewProject)
+    {
+
+      return this.http.post<NewProject>(this.path+'api/projects/create/',new_project,
+            {headers: new HttpHeaders({'Content-Type': 'application/json'}),observe:'response'})
+            .pipe(catchError(this.handleError))
+
+    }
 }
