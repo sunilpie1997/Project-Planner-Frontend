@@ -56,6 +56,14 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <label for="status_id">Status</label>
+            <input type="checkbox" id="status_id" name="status" class="form-control"  [(ngModel)]="new_task.status" #status="ngModel">
+            
+            
+        </div>
+
+
         <button type="submit" [disabled]="updateTask.form.invalid" class="btn custom-btn">Proceed</button>
     
     </form>

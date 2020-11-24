@@ -22,7 +22,7 @@ export class TaskUpdateComponent implements OnInit {
   constructor(private projectService:ProjectService) { }
 
   ngOnInit(): void {
-    this.new_task=new NewTask(this.task.id,this.task.name,this.task.description,this.task.start_date,this.task.end_date)
+    this.new_task=new NewTask(this.task.id,this.task.name,this.task.description,this.task.start_date,this.task.end_date,this.task.status)
     
     if(this.task.assignee!=null)
     {
