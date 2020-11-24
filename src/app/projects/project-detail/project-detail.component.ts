@@ -12,8 +12,10 @@ export class ProjectDetailComponent implements OnInit {
 
   project_id:number=null;
 
+  /* when user clicks on 'view task' button  */
   show_tasks:boolean=false;
 
+  /* when user clicks on 'update' button for each project */
   edit_project:boolean=false;
 
   project:Project=null;
@@ -33,6 +35,7 @@ export class ProjectDetailComponent implements OnInit {
    
   }
 
+  /* toggle tasks list */
   view_tasks()
   {
     this.show_tasks=!this.show_tasks;
@@ -51,6 +54,7 @@ export class ProjectDetailComponent implements OnInit {
     
   }
 
+  /* show 'project-update' component */
   update_project()
   {
     this.edit_project=!this.edit_project;

@@ -5,6 +5,8 @@ import { User } from '../classes/user';
 @Injectable({
   providedIn: 'root'
 })
+
+/* this class shares logged in 'user' info with all other components */
 export class ShareUserService {
 
   private static share_user=new BehaviorSubject<User>(ShareUserService.getUserFromLS());

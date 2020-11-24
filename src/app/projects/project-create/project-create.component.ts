@@ -9,6 +9,7 @@ import { ProjectService } from 'src/app/services/project.service';
 })
 export class ProjectCreateComponent implements OnInit {
 
+  /* new project to be created */
   new_project:NewProject=new NewProject();
 
   constructor(private projectService:ProjectService) { }
