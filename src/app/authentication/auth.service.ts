@@ -8,6 +8,7 @@ import { LoginUser } from 'src/app/classes/login-user';
 import { TokenBody } from '../classes/token-body';
 import { User } from '../classes/user';
 import { ShareUserService } from './share-user.service';
+import { DecodedToken } from '../classes/decoded-token';
 
 @Injectable({
   providedIn: 'root'
@@ -107,7 +108,7 @@ export class AuthService {
     
     /* also store token in local storage */
     localStorage.setItem('token',tokenBody.access);
-    let decoded=jwt_decode(tokenBody.access);
+    let decoded:DecodedToken=jwt_decode(tokenBody.access);
     /* token expiry time */
     let exp=decoded.exp*1000;
     localStorage.setItem('exp',exp.toString());

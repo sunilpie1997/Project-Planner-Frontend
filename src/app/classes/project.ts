@@ -2,11 +2,11 @@ import { Manager } from './manager';
 
 export interface Project {
 
-    readonly id:number;
-    readonly name:string;
-    readonly description:string;
-    readonly start_date:Date;
-    readonly end_date:Date;
-    readonly manager:Manager;
+     id:number;
+     name:string;
+     description:string;
+     start_date:Date;
+     end_date:Date;
+     manager:Manager;
     
 }
