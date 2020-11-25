@@ -2,18 +2,18 @@
 
 Backend:
 
-github link: https://github.com/sunilpie1997/project_planner
-web link: project-planner-ufaber.herokuapp.com/
+1. github link: https://github.com/sunilpie1997/project_planner
+2. web link: project-planner-ufaber.herokuapp.com/
 
 Frontend:
 
-github link: https://github.com/sunilpie1997/project_planner_frontend
-web link: http://project-planner-frontend.s3-website.ap-south-1.amazonaws.com
+1. github link: https://github.com/sunilpie1997/project_planner_frontend
+2. web link: http://project-planner-frontend.s3-website.ap-south-1.amazonaws.com
 
 
 Features:
 
-# written in Angular
+#### written in Angular ####
 
 1. User can login
 2. Users can view projects and task in each projects
